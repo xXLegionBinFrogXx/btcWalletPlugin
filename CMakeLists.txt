@@ -18,6 +18,8 @@ FetchContent_Declare(WalletInterfaces
     FIND_PACKAGE_ARGS 2.0 NAMES WalletInterfaces
 )
 
+FetchContent_MakeAvailable(WalletInterfaces)
+
 # Add the secp256k1-wrapper library
 FetchContent_Declare(
     secp256k1-wrapper
