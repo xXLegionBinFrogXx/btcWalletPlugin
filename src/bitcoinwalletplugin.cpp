@@ -80,7 +80,7 @@ bool BitcoinWalletPlugin::compareKey(const unsigned char key1[], const unsigned 
 
 bool BitcoinWalletPlugin::isAvailable() const noexcept
 {
-    return true; // Placeholder: Check for required libraries (e.g., libbitcoin)
+    return true; 
 }
 
 QString BitcoinWalletPlugin::pluginName() const noexcept
@@ -95,7 +95,7 @@ QString BitcoinWalletPlugin::derivationPath() const noexcept
 
 QString BitcoinWalletPlugin::pluginVersion() const noexcept
 {
-    return QString("v2.0");
+    return QString("v2.1.0");
 }
 
 QString BitcoinWalletPlugin::pluginDescription() const noexcept

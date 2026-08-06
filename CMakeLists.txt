@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(WalletInterfaces)
 FetchContent_Declare(
     secp256k1-wrapper
     GIT_REPOSITORY https://github.com/xXLegionBinFrogXx/secp256k1-wrapper.git
-    GIT_TAG v1.0.0
+    GIT_TAG v1.1.0
 )
 
 # Make the fetched content available
@@ -34,7 +34,7 @@ FetchContent_MakeAvailable(secp256k1-wrapper)
 FetchContent_Declare(
     BitcoinKeyUtils
     GIT_REPOSITORY https://github.com/xXLegionBinFrogXx/bitcoin-key-utils.git
-    GIT_TAG v1.0.1
+    GIT_TAG v1.1.0
 )
 
 FetchContent_MakeAvailable(BitcoinKeyUtils)
