@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(BitcoinWalletPlugin LANGUAGES C CXX)
+project(BitcoinWalletPlugin VERSION 3.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,21 +20,11 @@ FetchContent_Declare(WalletInterfaces
 
 FetchContent_MakeAvailable(WalletInterfaces)
 
-# Add the secp256k1-wrapper library
-FetchContent_Declare(
-    secp256k1-wrapper
-    GIT_REPOSITORY https://github.com/xXLegionBinFrogXx/secp256k1-wrapper.git
-    GIT_TAG v1.1.0
-)
-
-# Make the fetched content available
-FetchContent_MakeAvailable(secp256k1-wrapper)
-
-# Add Bitcoin key utils library
+# Add Bitcoin key utils library (brings in secp256k1-wrapper itself)
 FetchContent_Declare(
     BitcoinKeyUtils
     GIT_REPOSITORY https://github.com/xXLegionBinFrogXx/bitcoin-key-utils.git
-    GIT_TAG v1.1.0
+    GIT_TAG v2.0.0
 )
 
 FetchContent_MakeAvailable(BitcoinKeyUtils)
@@ -51,13 +41,12 @@ target_link_libraries(BitcoinWalletPlugin
     PRIVATE
     Qt6::Core
     WalletInterfaces::WalletInterfaces
-    secp256k1-wrapper::static
     bitcoin-key-utils::static
 )
 
-target_include_directories(BitcoinWalletPlugin
-    PRIVATE
-    ${secp256k1-wrapper_SOURCE_DIR}/include
+target_compile_options(BitcoinWalletPlugin PRIVATE
+    $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra>
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>
 )
 
 # Set output directory for the plugin

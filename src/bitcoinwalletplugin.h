@@ -5,9 +5,6 @@
 #include <QObject>
 
 
-#define PRIVKEY_SIZE 32
-#define PUBKEY_COMPRESSION_SIZE 33
-
 class BitcoinWalletPlugin : public QObject, public IWalletInterface
 {
     Q_OBJECT
@@ -31,21 +28,13 @@ public:
     QString pluginName() const noexcept override;
 
     [[nodiscard]]
-    virtual QString pluginVersion() const noexcept override;
+    QString pluginVersion() const noexcept override;
 
     [[nodiscard]]
-    virtual QString pluginDescription() const noexcept override;
+    QString pluginDescription() const noexcept override;
 
     [[nodiscard]]
-    virtual QString addressSample() const noexcept override;
-
-
-
-private:
-    bool compareKey(const unsigned char key1[], const unsigned char key2[], size_t keySize) const;
-    QByteArray convertToQByteArray(const unsigned char* data, int size) const;
-    void convertFromQByteArray(const QByteArray& data, unsigned char* output) const;
-
+    QString addressSample() const noexcept override;
 };
 
 #endif // BITCOINWALLETPLUGIN_H
