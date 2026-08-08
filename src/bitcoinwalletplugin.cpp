@@ -11,7 +11,6 @@ QString toErrorString(const BitcoinKeyUtils::Error &error)
     return QString::fromStdString(error.message);
 }
 
-// Lippincott handler: rethrows the in-flight exception and maps it to a QString.
 // Must only be called from inside a catch block.
 QString currentExceptionMessage() noexcept
 {
@@ -67,7 +66,6 @@ QString BitcoinWalletPlugin::pluginName() const noexcept
 
 QString BitcoinWalletPlugin::derivationPath() const noexcept
 {
-    // Wallets are single random keys, not BIP32-derived: no derivation path.
     return QString();
 }
 
