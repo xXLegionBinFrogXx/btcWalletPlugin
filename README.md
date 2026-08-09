@@ -26,7 +26,7 @@ Dependencies pulled in by `FetchContent`:
 | --- | --- |
 | [WalletInterfaces](https://github.com/xXLegionBinFrogXx/WalletInterfaces) | `v2.0.0` |
 | [secp256k1-wrapper](https://github.com/xXLegionBinFrogXx/secp256k1-wrapper) | `v1.1.0` |
-| [bitcoin-key-utils](https://github.com/xXLegionBinFrogXx/bitcoin-key-utils) | `v1.1.0` |
+| [bitcoin-key-utils](https://github.com/xXLegionBinFrogXx/bitcoin-key-utils) | `v2.1.0` |
 
 `WalletInterfaces` uses `FIND_PACKAGE_ARGS`, so an installed copy matching 2.0 is
 preferred and the clone is the fallback.
